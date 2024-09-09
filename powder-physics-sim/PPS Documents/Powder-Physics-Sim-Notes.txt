@@ -1,0 +1,4 @@
+Powder Physics Sim Notes
+
+Seems like water levels out exponentially? The more level it gets, the rate of leveling out decreases or something
+

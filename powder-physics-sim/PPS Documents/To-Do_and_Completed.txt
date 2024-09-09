@@ -1,0 +1,137 @@
+**************************************************
+**FORGOT: NEED TO COMBINE/UPDATE WITH CODE ON PC**
+**************************************************
+To-Do and Completed
+
+==Current Projects==
+- Ability for user to resize world
+- Water glitching through walls
+
+
+==Ideas==
+- Idea of replicating "Where's My Water?" game - from Sesha
+- Ability to change gravitational field, particles with gravity - Deep
+-* Temperature mechanic, I think was saying water could be turned into ice or steam and back - Srikar
+
+- Marie tried creating something like an aquarium. Wanted steam to wriggle in the water but I made steam lighter than water so wasn't possible. Maybe make fish and other animal things in the sim. Also be able to make multi-cell objects, like plants, coral, little animals, etc. Have a fun little sandbox version for Marie to play with.
+- Create different versions of this simulator. Ideas: ecosystem/zoo/aquarium stuff, the original physics stuff, something fun for dad, something fun for mom.
+- Marie: Ability to make creative little worlds, with animals and plants, houses, people, etc. to create, design, manage, etc.
+- Dad: Create something fun to play around with, make it interesting and able to be creative and last
+- Mom: Haven't really talked much with her but think of a version enjoyable for her, maybe also creativity stuff, drawing, cooking?, plants/garden, etc. She also seems to enjoy shows, as does anyone else
+
+- Maybe have different angles of repose for powders. Probably would be complex but doable.
+
+
+==Things to fix==
+- Water can pass through walls, like ice. Should make it check for obstructions before it decides to move to a distant cell.
+- Keep making water more fluid
+- Fix fps, show physics updates per second. Maybe combine updates with fps idk, but mainly just provide feedback on how fast the sim is updating
+
+- Refactor and Optimize
+
+==Things to Improve==
+<Code>
+- Simplify properties of particles, create a tree of behaviors or use composition
+
+==Things to Add==
+
+<Program>
+- Calculate and display updates per second or frames per second
+- Save and load saves system
+- Settings
+- Maybe even Main menu
+
+<User Input>
+For now just have buttons in HTML, not canvas
+- Allow changing cursor size with scroll wheel
+- Right click mode. Allow a secondary editing with right click, like delete. Will need a way to set that in UI. Maybe have button for which click is being set, or allow right clicking radios and having color set as red for right click. Not sure if radio can have multiple values.
+- Add cursor type: Circle
+- Make drawing more continuous. Currently when drawing and dragging, just draws particles wherever mouse is instantly instead of throughout the drag. Maybe keep track of prev pos and fill through from there to new pos of cursor. Should calculate where mouse was previously, where it is now, and fill with particles in between.
+- Ability to draw straight lines while holding shift
+- Space bar to pause/resume
+- Make screen resizable for user
+
+<Mechanics>
+- Heat transfer between particles
+- Pressure
+  - wind
+- Gravity (On or off)
+- A sort of 'alchemy' system. Salt and water make saltwater. Heating saltwater separates them into salt and steam.
+- Electrolysis
+
+<Particle Structuring>0
+- Use composition to build different types of particles
+
+
+
+<New particles (ordered by complexity)>
+Misc:
+- Explosive: once it makes contact with a particle other than another explosive, does following: deletes particles nearby, causes pressure and pushes other particles, creates some fire and smoke, explosion light, deletes itself. Should be dramatic and cool.
+
+- fish, dirt, soil, seeds(!?), fire?, smoke, wood, leaves, hydrogen, oxygen, spark(unrealistic electricity), cloner, battery, coal, (heat sources),
+
+Solids:
+- Salt. Can mix with water to create saltwater. How it would work: when one or the other tries to move into the other, deletes itself and replaces the one being moved into with saltwater
+- Ice. Solid phase of water
+- Iron. can conduct electricity and melt into lava. Has a chance of rusting with water when in contact.
+- Rust. Product of iron and water
+- Lava. Liquid phase of metals. Should retain a property remembering what metal it started as.
+
+Liquids:
+- Saltwater. If heated enough, boils but creates both steam and salt.
+
+Ecosystem Pack:
+Maybe ability to load it, to save processing power or specialize program, idk.
+- Fish. Aquatic creature. Single cell. Variety of random colorful colors.
+- Rabbit. Terrestrial creature. Single cell. Jumps.
+- Chicken. Terrestrial creature. Single cell.
+- Bird. Aerial creature. Single cell. Boids.
+- Frog. Single cell. jumps around. Amphibious creature.
+- Tree. Terrestrial creature. Multi cell. grows on soil.
+- Coral. Aquatic creature. Multi cell. Grows, to a point?
+- Grass. grows on surface of soil.
+
+==Things in Program==
+
+<Mechanics>
+- Hardcoded gravity 4/19
+- Temperature
+  - Phase changes 4/24
+
+- Particles: Powder(renamed to Dust 4/24), Water, Steam 4/19, Ice 4/22
+
+
+<User Input>
+- Ability to pause and resume 4/19
+- Ability to place particles 4/20
+- Ability to choose a particle to place 4/20
+- Deleting particles 4/21
+- Resizable cursor 4/21
+- Cursor types: Square 4/21
+- Temperature tool (Just UI) 4/22
+- Inspect tool 4/22
+- Ability to modify world when paused 4/24
+
+
+
+
+
+/*
+Water Move Notes
+- Choose random cell nearby
+- If in bounds and no particle, go to cell
+- Else if moving down and particle in target cell is lighter,
+-  swap positions
+
+Change objective: make water more fluid. Hypothesis: in this simulation, fluidity would mean it can move multiple tiles quicker and is less apparently affected by other particles, slide past them faster
+if can go down, go down
+else if can go to a side, go to side
+
+after achieving previous, do this:
+go down as far as water would travel
+means it will check every tile in front of it until it hits a particle or reaches its max 'speed'
+choose random direction, left or right
+check the furthest it can go. If not possible, check next furthest position
+**X765
+**1234
+*/

@@ -1,0 +1,8 @@
+<==Powder Physics Sim Change Log==>
+4/20/23
+=User Input=
+-added radio buttons below puse button to choose drawing powder or water
+=Mechanics=
+- Made 'water' more fluid/runny
+
+=Other=
